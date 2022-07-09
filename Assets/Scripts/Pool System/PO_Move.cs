@@ -45,6 +45,7 @@ public class PO_Move : BasePoolObject
     {
         base.Init(center, offset);
         m_bounds = new Bounds(center, offset * 2);
+        Reuse();
     }
 
     public override void ResetObject()

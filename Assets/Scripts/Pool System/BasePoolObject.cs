@@ -28,7 +28,6 @@ public class BasePoolObject : MonoBehaviour
     {
         m_center = center;
         m_extents = offset;
-        Reuse();
     }
 
     public void SetPool(IObjectPool<BasePoolObject> pool) => m_pool = pool;

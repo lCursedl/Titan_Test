@@ -24,6 +24,7 @@ public class PO_Simple : BasePoolObject
     public override void Init(Vector3 center, Vector3 offset)
     {
         base.Init(center, offset);
+        Reuse();
     }
 
     public override void ResetObject()
