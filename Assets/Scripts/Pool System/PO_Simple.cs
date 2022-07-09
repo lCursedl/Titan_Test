@@ -14,18 +14,25 @@ public class PO_Simple : BasePoolObject
         }
     }
 
+    public override void Reuse()
+    {
+        base.Reuse();
+        RandomTransform(m_center, m_extents);
+        gameObject.SetActive(true);
+    }
+
     public override void Init(Vector3 center, Vector3 offset)
     {
         base.Init(center, offset);
-        RandomTransform(center, offset);
     }
 
     public override void ResetObject()
     {
         base.ResetObject();
+        gameObject.SetActive(false);
         m_lifeTime = 0f;
         m_transform.localScale = Vector3.one;
-        m_transform.localPosition = Vector3.zero;
+        m_transform.localPosition = m_center;
         m_transform.localRotation = Quaternion.identity;
     }
 
