@@ -28,6 +28,7 @@ public class BasePoolObject : MonoBehaviour
     {
         m_center = center;
         m_extents = offset;
+        GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
     }
 
     public void SetPool(IObjectPool<BasePoolObject> pool) => m_pool = pool;

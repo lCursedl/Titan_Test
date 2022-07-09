@@ -17,8 +17,8 @@ public class Grid : MonoBehaviour
         m_lastTile.Set(-1, -1);
         tileSize = TilePrefab.gameObject.transform.localScale;
         m_grid = new Tile[Width, Height];
-
-        for(int x = 0; x < Width; ++x)
+        bool isOffset;
+        for (int x = 0; x < Width; ++x)
         {
             for(int y = 0; y < Height; ++y)
             {
@@ -27,6 +27,8 @@ public class Grid : MonoBehaviour
                                                        transform.position.y - 5f,
                                                        tileSize.z * y),
                                            Quaternion.identity);
+                isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
+                m_grid[x, y].Init(isOffset);
             }
         }
     }
